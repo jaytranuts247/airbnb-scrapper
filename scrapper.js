@@ -13,6 +13,7 @@ module.exports = function (url) {
 
       await page.goto(url, {
         waitUntil: ["load", "networkidle0", "domcontentloaded"],
+        timeout: 0,
       });
       const content = await page.evaluate(() => document.body.innerHTML);
 
