@@ -30,6 +30,9 @@ module.exports = function (url) {
       await browser.close();
 
       resolve(content);
-    })().catch((err) => console.log(err));
+    })().catch((err) => {
+      console.log(err);
+      reject(err);
+    });
   });
 };
