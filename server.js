@@ -14,6 +14,7 @@ app.get("/scrape", (req, res) => {
   const url = req.query.url;
   (async () => {
     try {
+      console.log(url);
       const html = await scrapper(url);
       // console.log(html);
 
@@ -31,6 +32,7 @@ app.get("/scrapejson", (req, res) => {
   const listingSelector = "._8s3ctt";
   const dataSelector = "#data-state";
   const url = req.query.url;
+  console.log(url);
   (async () => {
     try {
       const html = await scrapper(url);
@@ -39,6 +41,8 @@ app.get("/scrapejson", (req, res) => {
       const dataRes = $(dataSelector).html();
       const jsonData = JSON.parse(dataRes);
       const listings = $(listingSelector);
+
+      console.log("scrape finish");
       res.json({
         data: jsonData,
         listings: listings.html(),
