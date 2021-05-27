@@ -79,8 +79,8 @@ module.exports = function (url) {
       // });
       await page.goto(url);
 
-      await page.waitforselector("#data-state");
-      await page.waitforselector(selectors.pricePerNight);
+      await page.waitForSelector("#data-state");
+      await page.waitForSelector(selectors.pricePerNight);
 
       const content = await page.evaluate(() => document.body.innerHTML);
 
