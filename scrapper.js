@@ -80,7 +80,7 @@ module.exports = function (url) {
       await page.goto(url);
 
       await page.waitForSelector("#data-state");
-      await page.waitForSelector(selectors.pricePerNight);
+      await page.waitForSelector(Selectors.pricePerNight);
 
       const content = await page.evaluate(() => document.body.innerHTML);
 
